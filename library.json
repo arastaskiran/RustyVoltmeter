@@ -1,0 +1,38 @@
+{
+    "name": "RustyVoltmeter",
+    "version": "1.0.0",
+    "description": "Voltage measurement with Arduino analog pin.",
+    "keywords": [
+      "voltmeter",
+      "voltage",
+      "voltage divider",
+      "analog voltage",
+      "basic voltmeter"
+    ],
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/arastaskiran/RustyVoltmeter.git"
+    },
+    "authors": [
+      {
+        "name": "Aras Taşkıran",
+        "email": "aras@arastaskiran.com",
+        "maintainer": true
+      }
+    ],
+    "license": "GPL-3.0-or-later",
+    "frameworks": [
+      "arduino"
+    ],
+    "platforms": [
+      "atmelavr",
+      "espressif32",
+      "espressif8266"
+    ],
+    "headers": [
+      "rusty_voltmeter.h"
+    ],
+    "examples": [
+      "examples/*"
+    ]
+  }
