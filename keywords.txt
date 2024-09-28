@@ -1,0 +1,8 @@
+RustyVoltmeter    KEYWORD1
+update            KEYWORD2
+getVoltage        KEYWORD3
+getAvgVoltage     KEYWORD3
+toString          KEYWORD3
+toAvgString       KEYWORD3
+addChangeListener  KEYWORD2
+addAvgChangeListener KEYWORD2
