@@ -95,6 +95,14 @@ public:
      */
     void addAvgChangeListener(void (*listener)(float));
 
+    /**
+     * @brief Converts a float value to a String representation with two decimal places.
+     *
+     * @param op_val Pointer to the float value to be converted.
+     * @return String The String representation of the float value.
+     */
+    String floatToString(float *op_val);
+
 private:
     /**
      * @brief The pin number used for voltage measurement.
@@ -184,14 +192,6 @@ private:
      * @brief The average voltage calculated from the samples (in volts).
      */
     float avg_voltage;
-
-    /**
-     * @brief Converts a float value to a String representation with two decimal places.
-     *
-     * @param op_val Pointer to the float value to be converted.
-     * @return String The String representation of the float value.
-     */
-    String floatToString(float *op_val);
 
     /**
      * @brief Compares two float values for equality within a specified tolerance.
