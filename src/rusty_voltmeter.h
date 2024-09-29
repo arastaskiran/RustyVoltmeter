@@ -112,12 +112,12 @@ private:
     /**
      * @brief The value of the first resistor in the voltage divider (in ohms).
      */
-    float R1;
+    float *R1;
 
     /**
      * @brief The value of the second resistor in the voltage divider (in ohms).
      */
-    float R2;
+    float *R2;
 
     /**
      * @brief The delay between measurements (in milliseconds).
@@ -132,12 +132,12 @@ private:
     /**
      * @brief The resolution of the analog-to-digital converter (ADC).
      */
-    float adc_resolution;
+    float *adc_resolution;
 
     /**
      * @brief The reference voltage for the ADC (in volts).
      */
-    float ref_voltage;
+    float *ref_voltage;
 
     /**
      * @brief The current measured voltage (in volts).
@@ -147,7 +147,7 @@ private:
     /**
      * @brief Error correction coefficient for voltage measurements.
      */
-    float ecc;
+    float *ecc;
 
     /**
      * @brief Checks if a new voltage reading can be taken.

@@ -1,6 +1,6 @@
 {
     "name": "RustyVoltmeter",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "description": "Voltage measurement with Arduino analog pin.",
     "keywords": [
       "voltmeter",

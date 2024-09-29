@@ -4,17 +4,17 @@ RustyVoltmeter::RustyVoltmeter(uint8_t pin, float r1, float r2, unsigned long de
 {
     pinMode(pin, INPUT);
     measurement_pin = pin;
-    R1 = r1;
-    R2 = r2;
+    R1 = new float(r1);
+    R2 = new float(r2);
     measurement_delay_ms = delay_ms;
     last_measurement_ms = millis();
-    adc_resolution = adc_res;
-    ref_voltage = ref_v;
+    adc_resolution = new float(adc_res);
+    ref_voltage = new float(ref_v);
     current_voltage = 0.0F;
     changeListener = 0;
     changeAvgListener = 0;
     raw_adc = 0;
-    ecc = error_correction;
+    ecc = new float(error_correction);
     sample_limit = sample_count;
     current_sample = 0;
     sample_sum = 0.0F;
@@ -23,6 +23,16 @@ RustyVoltmeter::RustyVoltmeter(uint8_t pin, float r1, float r2, unsigned long de
 
 RustyVoltmeter::~RustyVoltmeter()
 {
+    delete R1;
+    delete R2;
+    delete adc_resolution;
+    delete ref_voltage;
+    delete ecc;
+    R1 = nullptr;
+    R2 = nullptr;
+    adc_resolution = nullptr;
+    ref_voltage = nullptr;
+    ecc = nullptr;
 }
 
 void RustyVoltmeter::addChangeListener(void (*listener)(float))
@@ -54,8 +64,8 @@ void RustyVoltmeter::update()
         return;
     }
     int adc_value = analogRead(measurement_pin);
-    float voltage_measured = (adc_value * ref_voltage) / adc_resolution;
-    float real_voltage = (voltage_measured * ((R1 + R2) / R2)) + ecc;
+    float voltage_measured = (adc_value * (*ref_voltage)) / (*adc_resolution);
+    float real_voltage = (voltage_measured * ((*R1 + *R2) / *R2)) + *ecc;
     if (raw_adc != adc_value)
     {
         raw_adc = adc_value;
