@@ -65,7 +65,7 @@ void RustyVoltmeter::update()
     }
     int adc_value = analogRead(measurement_pin);
     float voltage_measured = (adc_value * (*ref_voltage)) / (*adc_resolution);
-    float real_voltage = (voltage_measured * ((*R1 + *R2) / *R2)) + *ecc;
+    float real_voltage = ((voltage_measured * ((*R1 + *R2) / *R2))) * (*ecc);
     if (raw_adc != adc_value)
     {
         raw_adc = adc_value;

@@ -18,12 +18,12 @@ public:
      * @param r1 The value of the first resistor in the voltage divider (in ohms).
      * @param r2 The value of the second resistor in the voltage divider (in ohms).
      * @param delay_ms Optional. The delay between each sample reading (in milliseconds). Default is 1 ms.
-     * @param error_correction Optional. A correction factor for adjusting any measurement errors. Default is 0.0.
+     * @param error_correction Optional. A correction factor for adjusting any measurement errors. Default is 1. Calculation: [Actual Voltage]/[Read Voltage]
      * @param sample_count Optional. The number of samples to take for averaging the voltage reading. Default is 5.
      * @param adc_res Optional. The resolution of the ADC (e.g., 1023 for a 10-bit ADC). Default is 1023.0.
      * @param ref_v Optional. The reference voltage for the ADC (in volts). Default is 5.0 V.
      */
-    RustyVoltmeter(uint8_t pin, float r1, float r2, unsigned long delay_ms = 1UL, float error_correction = 0.0, uint8_t sample_count = 5, float adc_res = 1023.0, float ref_v = 5.0);
+    RustyVoltmeter(uint8_t pin, float r1, float r2, unsigned long delay_ms = 1UL, float error_correction = 1.0, uint8_t sample_count = 5, float adc_res = 1023.0, float ref_v = 5.0);
 
     /**
      * @brief Destructor for the RustyVoltmeter class.
@@ -146,6 +146,8 @@ private:
 
     /**
      * @brief Error correction coefficient for voltage measurements.
+     * Default:1
+     * Calculation: [Actual Voltage]/[Read Voltage]
      */
     float *ecc;
 
